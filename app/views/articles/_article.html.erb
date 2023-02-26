@@ -1,0 +1,13 @@
+<div id="<%= dom_id article %>">
+  <h2>
+    <%= article.title %>
+  </h2>
+  <h5>Posted by</h5> <h6><%= article.user.name %> </h6>
+  <h6> <%= pluralize(article.views,"view") %></h6>
+
+  <p>
+    <strong>Body:</strong>
+    <%= article.body %>
+  </p>
+
+</div>

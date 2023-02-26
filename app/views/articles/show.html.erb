@@ -1,0 +1,21 @@
+<div class=container>
+<%= render @article %>
+
+<div>
+  <%= link_to "Edit this article", edit_article_path(@article) %> |
+  <%= link_to "Back to articles", articles_path %>
+
+  <%= button_to "Destroy this article", @article, method: :delete %>
+</div>
+</div>
+
+
+<div class=container>
+  <%= render 'comments/form', article: @article %>
+
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment',article:@article , comment:comment %>
+    <% end %>
+</div>
+
+
