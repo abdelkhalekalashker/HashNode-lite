@@ -11,7 +11,7 @@
 
 
 <div class=container>
-  <%= render 'comments/form', article: @article %>
+  <%= render 'comments/form', article: @article,comment: @article.comments.build, submit_label:"Reply" %>
 
   <% @comments.each do |comment| %>
     <%= render 'comments/comment',article:@article , comment:comment %>
