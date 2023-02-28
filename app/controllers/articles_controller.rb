@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
   def show
     @article.update(views: @article.views + 1)
     @comments = @article.comments.order(created_at: :desc)
+
+    mark_notifications_as_read
   end
 
   # GET /articles/new
@@ -69,5 +71,12 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :body)
+    end
+
+    def mark_notifications_as_read
+      if current_user
+        notifications_to_mark_as_read = @article.notifications_as_article.where(recipient: current_user)
+        notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
+      end
     end
 end

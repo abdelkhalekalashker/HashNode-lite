@@ -18,9 +18,8 @@
           <li class="nav-item">
             <%= link_to 'New article', new_article_path,class:"nav-link "  %>
           </li>
-        <% end %>
-        <li class="nav-item dropdown">
-          <% if current_user %>
+
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= current_user.name %>
             </a>
@@ -30,7 +29,15 @@
               <li><hr class="dropdown-divider"></li>
               <li><%= button_to 'Sign out', destroy_user_session_path,method: :delete ,class:"dropdown-item" %></li>
             </ul>
-          <% else %>
+          </li>
+
+          <li class="nav-item">
+              <%= render 'shared/notifications' %>
+          </li>
+
+
+        <% else %>
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Sign in
             </a>
@@ -39,9 +46,9 @@
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to 'Sign up', new_user_registration_path ,class:"dropdown-item" %></li>
             </ul>
-          <% end %>
-        </li>
-       
+          </li>
+        <% end %>
+
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
