@@ -1,16 +1,17 @@
-<div class=container>
-<%= render @article %>
+<div align="center" class=container>
+  <%= render @article %>
 
-<div>
-  <%= link_to "Edit this article", edit_article_path(@article) %> |
-  <%= link_to "Back to articles", articles_path %>
+  <div align="center" class="btn-group">
+    <%= link_to "Edit this article", edit_article_path(@article), class:"btn btn-warning" %>
+    <%= link_to "Back to articles", articles_path, class:"btn btn-secondary" %>
 
-  <%= button_to "Destroy this article", @article, method: :delete %>
+    <%= button_to "Destroy this article", @article, method: :delete,class:"btn btn-danger" %>
+  </div>
 </div>
-</div>
+<br>
 
 
-<div class=container>
+<div align="center" class=container>
   <%= render 'comments/form', article: @article,comment: @article.comments.build, submit_label:"Reply" %>
 
   <% @comments.each do |comment| %>

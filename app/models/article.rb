@@ -3,5 +3,7 @@ class Article < ApplicationRecord
     validates :body, presence:true , length: {minimum:1, maximu:300}
     belongs_to :user
 
+    has_rich_text :body
+
     has_many :comments , dependent: :destroy
 end

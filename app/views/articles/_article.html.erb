@@ -1,8 +1,9 @@
-<div id="<%= dom_id article %>">
+<div align="center" id="<%= dom_id article %>">
+
   <h2>
     <%= article.title %>
   </h2>
-  <h5>Posted by</h5> <h6><%= article.user.name %> </h6>
+  <strong>Posted by: <span><%= (article.user.name).capitalize %></span> </strong>
   <h6> <%= pluralize(article.views,"view") %></h6>
 
   <p>

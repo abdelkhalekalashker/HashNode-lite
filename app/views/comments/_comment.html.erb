@@ -1,5 +1,5 @@
-<div class="comment-<%= comment.id %> container" style="border: 1px solid black; border-radiuse:2px; padding:1em ; margin:1em;">
-    
+<div class="comment-<%= comment.id %> container" style="border: 1px solid black; border-redius:2px; padding:1em ; margin:1em;">
+
     <h4><%= comment.user.name %><br></h4>
     <% if (comment.updated_at - comment.created_at) > 0 %>
         <span>Updated <%= time_ago_in_words(comment.updated_at) %> ago</span>
@@ -15,20 +15,20 @@
                 controller: "comments",
                 action: "comments#toggleForm",
                 comments_form_param: "edit-form-#{comment.id}",
-                comments_body_param: "comment-body-#{comment.id}"} 
-            
+                comments_body_param: "comment-body-#{comment.id}"}
+
             %>
             <%= button_to "Delete" , [article,comment] , method: :delete , class:"btn btn-danger mb-6" %>
         </div>
 
-        <div id="edit-form-<%= comment.id %>" class="d-none"> 
+        <div id="edit-form-<%= comment.id %>" class="d-none">
               <%= render 'comments/form', article: @article, comment: comment, submit_label: "Update" %>
         </div>
     <% end %>
     <hr>
     <div id="comment-body-<%= comment.id%>">
         <%= comment.body %>
-        </div>
+    </div>
 
-    
+
 </div>

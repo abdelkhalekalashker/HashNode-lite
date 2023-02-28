@@ -1,4 +1,5 @@
 <%= form_with(model: article) do |form| %>
+<div align="center">
   <% if article.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -18,10 +19,11 @@
 
   <div>
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.rich_text_area :body %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
+</div>
 <% end %>
