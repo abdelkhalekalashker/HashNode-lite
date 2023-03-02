@@ -21,10 +21,10 @@ class CommentNotification < Noticed::Base
     @article = Article.find(params[:Comment][:article_id])
     @comment = Comment.find(params[:Comment][:id])
     @user = User.find(@comment.user_id)
-    "#{@user.name} commented on #{@article.title.truncate(10)}"
+    return "#{@user.name} commented on #{@article.title.truncate(10)}" unless @user == @article.user
   end
   #
   def url
-    article_path(Article.find(params[:Comment][:article_id]))
+    return article_path(Article.find(params[:Comment][:article_id])) unless params[:Comment][:user_id] == @article.user_id
   end
 end

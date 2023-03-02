@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  authenticated :user, ->(user){user.admin?} do
+    get 'admin', to:"admin#index"
+    get 'admin/show_article/:id',to: "admin#show_article" , as: "admin_article"
+    get 'admin/comments'
+    get 'admin/users'
+    get 'admin/articles'
+  end
   get 'search' , to: "search#index"
   get 'users/profile'
   devise_for :users , controllers: {

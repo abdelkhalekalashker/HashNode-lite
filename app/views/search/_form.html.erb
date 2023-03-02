@@ -1,6 +1,6 @@
-<%= search_form_for(@query, url: search_path, method: :get, class:'d-flex') do |f| %>
-  <%= f.search_field :title_or_body_cont,
-   placeholder: "Search...",
-   class: "form-control me-2" %>
-  <%= f.submit "Search!", class:"btn btn-outline-success" %>
-<% end %>
+<form class="d-flex" action="<%= search_path %>">
+        <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+

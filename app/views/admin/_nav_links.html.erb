@@ -1,0 +1,11 @@
+<div class="container text-center">
+    <h1>Adminstrator</h1>
+    <p >
+        <%= link_to 'Admin', admin_path %> <%= " ->  #{params[:action].capitalize}" unless params[:action].eql?("index")%>
+    </p>
+    <div class="btn-group">
+        <%= render 'admin/link',resource: Article %>
+        <%= render 'admin/link',resource: Comment %>
+        <%= render 'admin/link',resource: User %>
+    </div>
+</div>
