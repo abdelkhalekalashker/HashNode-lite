@@ -7,18 +7,19 @@ Rails.application.routes.draw do
     get 'admin/articles'
   end
   get 'search' , to: "search#index"
-  get 'users/profile'
+  # get 'users/profile'
   devise_for :users , controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :articles do
-      resources :comments
-  end
-
-
 
   get 'u/:id' , to: 'users#profile', as: "user"
+  resources :after_signup
+
+  resources :articles do
+    resources :comments
+  end
+
   get 'pages/home'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "home", to: "pages#home"
