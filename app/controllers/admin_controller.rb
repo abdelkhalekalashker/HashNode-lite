@@ -1,10 +1,10 @@
 class AdminController < ApplicationController
   def index
-    @articles = Article.all.includes(:user, :comments)
+    @articles = Article.includes(:user, :comments).all
   end
 
   def show_article
-      @post = Article.includes(:user, :comments).find(params[:id])
+      @post = Article.find(params[:id])
   end
 
   def comments
@@ -14,7 +14,7 @@ class AdminController < ApplicationController
   end
 
   def articles
-    @articles = Article.all.includes(:user, :comments)
+    @articles = Article.includes(:user).all
 
   end
 end

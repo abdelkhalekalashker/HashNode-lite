@@ -6,7 +6,7 @@ class Article < ApplicationRecord
     belongs_to :user
 
     has_rich_text :body
-
+    has_many_attached :pictures
     has_many :comments , dependent: :destroy
 
     has_noticed_notifications model_name: "Notification"

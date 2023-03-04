@@ -1,15 +1,15 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_article, only: %i[ show update destroy ]
   before_action :authenticate_user!
   # GET /articles or /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.includes([:user]).includes([:rich_text_body]).all
   end
 
   # GET /articles/1 or /articles/1.json
   def show
     @article.update(views: @article.views + 1)
-    @comments = @article.comments.order(created_at: :desc)
+    @comments = @article.comments.includes([:user,:rich_text_body]).order(created_at: :desc)
 
     mark_notifications_as_read
   end
@@ -20,7 +20,9 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1/edit
-  def edit;  end
+  def edit
+    @article = Article.includes([ :rich_text_body]).find(params[:id])
+  end
 
   # POST /articles or /articles.json
   def create
@@ -64,12 +66,12 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.friendly.find(params[:id])
+      @article = Article.includes([:user , :rich_text_body]).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, pictures: [2])
     end
 
     def mark_notifications_as_read

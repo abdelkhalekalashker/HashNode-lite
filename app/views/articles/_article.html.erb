@@ -3,7 +3,7 @@
   <h2>
     <%= article.title %>
   </h2>
-  <strong>Posted by: <span><%= (article.user.name).capitalize %></span> </strong>
+  <strong>Posted by: <span><%= (article.user.first_name).capitalize %></span> </strong>
   <h6> <%= pluralize(article.views,"view") %></h6>
 
   <p>

@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
     before_action :set_article
     before_action :authenticate_user!
 
-    def create 
+    def create
         @article = Article.find(params[:article_id])
         @comment = @article.comments.create(comment_params)
-        @comment.user = current_user 
+        @comment.user = current_user
 
         if @comment.save!
             flash[:notice] = "Comment has been created"

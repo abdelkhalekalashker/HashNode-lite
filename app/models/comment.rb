@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  belongs_to :article
+  belongs_to :article , counter_cache: true
   belongs_to :user
 
   has_rich_text :body
@@ -11,6 +11,7 @@ has_noticed_notifications model_name: 'Notification'
 private
 
 def notify_recipient
+  return if article.user == user
   CommentNotification.with(Comment: self , article: article).deliver_later(article.user)
 end
 

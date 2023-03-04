@@ -13,7 +13,7 @@
         <tr align="center">
           <td><%= link_to article.title, article %></td>
           <td><%= article.body.to_plain_text.truncate(70) %></td>
-          <td><%= link_to article.user.name, article.user %></td>
+          <td><%= link_to article.user.first_name, article.user %></td>
         </tr>
       <% end %>
     </tbody>
