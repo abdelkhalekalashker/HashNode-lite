@@ -23,6 +23,11 @@
   </div>
 
   <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category_id, options_for_select(Category.all.order(name: :desc).collect {|cat| [cat.name , cat.id]} )%>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 </div>

@@ -32,7 +32,10 @@ Address.first_or_create(street: '123 Main St',
              country: 'USA',
              user: dean)
 
-
+category = Category.first_or_create!(name:"Uncategorized", display_in_nav: true)
+Category.first_or_create!(name:"Cars", display_in_nav: false)
+Category.first_or_create!(name:"Bikes", display_in_nav: true)
+Category.first_or_create!(name:"Boats", display_in_nav: true)
 
 elapsed=Benchmark.measure do
   articles = []
@@ -41,7 +44,8 @@ elapsed=Benchmark.measure do
     puts "creating article number #{x}"
     article = Article.new(title: "Title #{x}",
               body: "Body #{x} Words go here Idk",
-              user: abdo)
+              user: abdo,
+              category: category)
     articles.push(article)
     2.times do |y|
       puts "creating comment number #{y} for article number #{x} "
