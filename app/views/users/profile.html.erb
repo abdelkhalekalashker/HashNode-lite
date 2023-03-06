@@ -1,2 +1,37 @@
-<h1><%= @user.first_name %></h1>
-<h4><%= pluralize(@user.views , "view") %></h4>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-1">
+    </div>
+
+    <div class="col-4">
+        <%= image_tag(@user.avatar , style:"border-radius:100%; width:180px; height:150px;") if @user.avatar.attached? %>
+    </div>
+
+    <div class="col-7">
+        <h1><%= @user.full_name %></h1>
+        <p>Articles total views: <%= pluralize(@user.views , "view") %></p>
+    </div>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-1">
+    </div>
+
+    <div class="col-10">
+        <% @articles.each do |article|%>
+          <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="card-title"><%= link_to article.title, article %></h4>
+                <p class="card-text"><%= time_ago_in_words(article.created_at)%> ago</p>
+                <p class="card-text"><%= article.body.to_plain_text.truncate_words(9)%>
+         </div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="col-1">
+    </div>
+  </div>
+</div>
