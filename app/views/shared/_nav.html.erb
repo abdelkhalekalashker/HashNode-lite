@@ -12,7 +12,11 @@
 
         <li class="nav-item">
             <%= link_to 'Blog', articles_path,class:"nav-link "  %>
-          </li>
+        </li>
+
+        <li class="nav-item">
+            <%= link_to 'Portfolio', projects_path,class:"nav-link "  %>
+        </li>
 
         <% if current_user %>
           <li class="nav-item">
@@ -25,6 +29,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to "Admin", admin_path, class:"dropdown-item" if current_user.admin? %></li>
+              <li><%= link_to "New project", new_project_path,class:"dropdown-item" if current_user.admin? %></li>
               <li><%= link_to 'Profile', edit_user_registration_path(current_user),method: :delete ,class:"dropdown-item" %></li>
               <li><%= link_to 'Settings', edit_user_registration_path(current_user), class:"dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>

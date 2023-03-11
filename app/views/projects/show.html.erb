@@ -1,0 +1,14 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @project %>
+<div align="center">
+  <div class="btn-group col">
+    <%= link_to "Edit this project", edit_project_path(@project), class:"btn btn-warning" if current_user&.admin? %> |
+    <%= link_to "Back to projects", projects_path,class:"btn btn-primary" %>
+
+    <%= button_to "Destroy this project", @project,class:"btn btn-danger", method: :delete if current_user&.admin? %>
+  </div>
+  </div>
+
+  </div>

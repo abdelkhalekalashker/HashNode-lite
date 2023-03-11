@@ -1,0 +1,16 @@
+<div id="<%= dom_id project %>">
+  <div class="container">
+    <div class="row">
+        <h2 class="col-md-8"><%= project.title.titleize %></h2>
+
+
+        <div class="col-md-4">
+          <a href="<%= project.link %>" target="_blank"><%= project.title %></a>
+        </div>
+    </div>
+    <div>
+      <%= project.rich_text_body %>
+    </div>
+
+  </div>
+</div>
