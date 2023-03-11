@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   def show
     @article.update(views: @article.views + 1)
     @comments = @article.comments.includes([:user,:rich_text_body]).order(created_at: :desc)
-
+    ahoy.track "Viewed article" , article_id: @article.id
     mark_notifications_as_read
   end
 

@@ -17,7 +17,7 @@
     <tr>
         <td><%= article.id %></td>
         <td><%= link_to article.title.truncate(20), admin_article_path(article) %></td>
-        <td><%= article.user.name.capitalize %></td>
+        <td><%= article.user.full_name.capitalize %></td>
         <td><%= pluralize(article.comments.size, "Comment") %></td>
     </tr>
    </tbody>
