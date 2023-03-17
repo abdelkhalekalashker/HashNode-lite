@@ -92,3 +92,6 @@ gem "ahoy_matey", "~> 4.2"
 gem "groupdate", "~> 6.2"
 
 gem "chartkick", "~> 5.0"
+
+gem "better_errors"
+gem "binding_of_caller"

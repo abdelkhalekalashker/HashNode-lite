@@ -1,14 +1,15 @@
-<div class="comment-<%= comment.id %> container"
-    style="border: 1px solid black; padding: 1em; margin: 1em;">
+<div align="center" class="comment-<%= comment.id %> form-control"
+    style="border: 1px solid black; padding: 1em; margin-right: 5em; margin-top:1em">
   <%= comment.user.email %><br />
   <% if (comment.updated_at - comment.created_at) > 1 %>
-    <span>Edited <%= time_ago_in_words(comment.updated_at) %> ago</span>
+    <p style="float:left">Edited <%= time_ago_in_words(comment.updated_at) %> ago</p>
   <% else %>
-    <span>Posted <%= time_ago_in_words(comment.created_at) %> ago</span>
+    <p style="float:left">Posted <%= time_ago_in_words(comment.created_at) %> ago</p>
   <% end %>
+      <br>
   <% if current_user == comment.user %>
     <div class="btn-group float-end">
-      <%= link_to "Edit", nil, remote: true, class:"btn btn-warning",
+      <%= button_to "Edit", nil, remote: true, class:"btn btn-warning",
       data: {
         controller: "comments",
         action: "comments#toggleForm",
@@ -16,9 +17,11 @@
         comments_body_param: "comment-body-#{comment.id}",
         comments_edit_param: "edit-button-#{comment.id}"
       },
-      id: "edit-button-#{comment.id}" %>
+      id: "edit-button-#{comment.id}" %>|
       <%= button_to "Delete", [article, comment], class:"btn btn-danger", method: :delete %>
     </div>
+
+    <br>
     <div id="edit-form-<%= comment.id%>" class="d-none">
       <%= render 'comments/form',
        article: @article,

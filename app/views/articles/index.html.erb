@@ -1,15 +1,6 @@
-<div class=container>
+<div class="container" , align="center">
 
 <h1>Articles</h1>
+<%= render 'categories/cat_form',articles: @articles.includes(:user,:rich_text_body,:category) %>
 
-<div id="articles">
-  <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New article", new_article_path %>
 </div>
