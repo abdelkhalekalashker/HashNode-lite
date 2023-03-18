@@ -1,7 +1,7 @@
 <div align="center" class="container">
+
 <h1>New article</h1>
+<%= render "form", article:@article %>
+<p align="center"> <%= link_to "Back to articles", articles_path,class:"btn btn-primary" %> </p>
 
-<%= render "form", article: @article %>
-
-
-  <%= link_to "Back to articles", articles_path, class:"btn btn-primary mt-3" %>
+</div>

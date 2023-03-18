@@ -22,42 +22,20 @@
           <li class="nav-item">
             <%= link_to 'New article', new_article_path,class:"nav-link "  %>
           </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= current_user.first_name %>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Admin", admin_path, class:"dropdown-item" if current_user.admin? %></li>
-              <li><%= link_to "New project", new_project_path,class:"dropdown-item" if current_user.admin? %></li>
-              <li><%= link_to 'Profile', user_path(current_user),method: :delete ,class:"dropdown-item" %></li>
-              <li><%= link_to 'Settings', edit_user_registration_path(current_user), class:"dropdown-item" %></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><%= button_to 'Sign out', destroy_user_session_path,method: :delete ,class:"dropdown-item" %></li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-              <%= render 'shared/notifications' %>
-          </li>
-
-
-        <% else %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Sign in
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to 'Sign in',  new_user_session_path , class:"dropdown-item" %></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><%= link_to 'Sign up', new_user_registration_path ,class:"dropdown-item" %></li>
-            </ul>
-          </li>
         <% end %>
 
+        <%= render 'shared/category', categories: @categories %>
+
+        <li class="nav-item">
+            <%= render 'shared/notifications' %>
+        </li>
+
+
       </ul>
-      <%= render 'shared/category', categories: @categories %>
+      <ul class="navbar-nav me-0">
+      <%= render 'shared/session' %>
       <%= render 'search/form' %>
+      </ul>
     </div>
   </div>
 </nav>

@@ -1,0 +1,10 @@
+<div class="container card mt-4 mb-3">
+    <h2>User Info</h2>
+
+    <ul>
+      <li>Lives in : <%= user.address.street.titleize %> -> <%= user.address.city.titleize %>  </li>
+      <li>From : <%= user.address.state.titleize %></li>
+      <li>Zip address : <%= user.address.zip %></li>
+      <li>Country : <%= user.address.country.titleize %></li>
+    </ul>
+  </div>
