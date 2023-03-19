@@ -4,16 +4,22 @@
     </div>
 
     <div class="col-4">
-        <%= image_tag(@user.avatar , style:"border-radius:100%; width:180px; height:150px;") if @user.avatar.attached? %>
+        <%= image_tag(@user.avatar , style:"border-radius:100%; width:130px;float:left;") if @user.avatar.attached? %>
     </div>
+    <div class="col-7" ></div>
+  </div>
 
-    <div class="col-7">
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-10" style="overflow:hidden;">
+
         <h1><%= @user.full_name %></h1>
         <p>Articles total views: <%= pluralize(@user.views , "view") %></p>
+
     </div>
+    <div class="col-1" ></div>
 
-
-  </div>
 <br>
   <div class="row">
 

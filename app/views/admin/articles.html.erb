@@ -1,5 +1,3 @@
-<div class="container">
-    <%= render 'admin/nav_links' %>
-<%= render 'categories/cat_form',articles: @articles.includes(:user,:rich_text_body,:category) %>
 
-</div>
+    <%= render 'admin/nav_links' %>
+    <%= render 'categories/cat_form',articles: @articles.includes(:user,:rich_text_body,:category) %>
