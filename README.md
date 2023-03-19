@@ -29,25 +29,25 @@ this is Personal blog that any user can publish articles or whatever he thought 
 
   * Bootstrap5
 
-  * javascript
+  * Javascript
   
   
 ## Tools Used:-
 
-  * VSCode  
+  * VsCode  
 
-  * gitHub
+  * GitHub
 
-  * brave browser
+  * Brave browser
 
-  * terminal
+  * Terminal
 
   * Operating system Linux Ubuntu 20.0.4
 
 
 ## Dependences:-
 
-  1. ruby version 3.0.1 using rbenv 
+  1. Ruby version 3.0.1 using rbenv 
 
   2. Rails version 7.0.4
 
@@ -56,14 +56,15 @@ this is Personal blog that any user can publish articles or whatever he thought 
   4. PostgreSQL
     
 ## Run Project
+   1. From your terminal run  ` $bundle install` to bunling the gems
 
-   * second run from your terminal run  ` $rails db:build ` command to build your database.
+   2. From your terminal run  ` $rails db:build ` command to build your database.
    
-   * then run ` $rails db:migrate ` and ` $db:seed` commands to migrate database and to seed database if you want.
+   3. Then run ` $rails db:migrate ` and ` $db:seed` commands to migrate database and to seed database if you want.
 
-   * finally run ` $rails server ` and open the localhost on port 3000 to browse through the application.
+   4. Finally run ` $rails server ` and open the localhost on port 3000 to browse through the application.
 
-   * If errore occurred the better_errors gem will help you, or go back to the terminal and run ` $rails console ` and start debugging.
+   5. If errore occured the better_errors gem will help you, or go back to the terminal and run ` $rails console ` and start debugging.
  
 
 
@@ -84,5 +85,5 @@ this is Personal blog that any user can publish articles or whatever he thought 
 
 ## License
 
-mit
+   mit license
 
