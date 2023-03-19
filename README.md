@@ -3,12 +3,32 @@ this is Personal blog that any user can publish articles or whatever he thought 
 
 
 # Table of Contents
+* [Preview](#preview)
 * [Technologies Used](#technologies-used-)
 * [Tools Used](#tools-used-)
 * [Dependences](#dependences-)
 * [Run](#run-project)
 * [Contributing](#contributing)
 * [License](#license)
+
+
+
+## Preview
+  
+  ![User Profile](app/assets/images/user_profile_page.png)
+  ![Admin](app/assets/images/amins_page.png)
+  ![Admin](app/assets/images/amins_articls.png)
+  ![Create article](app/assets/images/create_articl.png)
+  ![Articles](app/assets/images/articls_page.png)
+  ![Artile show](app/assets/images/article_show_pag.png)
+  ![Edit article](app/assets/images/Article_edit_page.png)
+  ![Home_page](app/assets/images/hom_pag.png)
+  ![Categories](app/assets/images/catgories_index.png)
+  ![Show Category](app/assets/images/ruby_catgory_page.png)
+
+  
+  
+
 
 
 ## Technologies Used:-
