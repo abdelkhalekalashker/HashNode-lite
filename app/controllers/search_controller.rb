@@ -15,7 +15,7 @@ class SearchController < ApplicationController
   end
 
   def autocomplete
-    results = Article.where("title ILIKE ?", "%#{params[:q]}%").limit(10)
+    results = Article.includes(:user, :rich_text_body).joins(:user,:category, :rich_text_body).where("articles.title ILIKE ? OR categories.name ILIKE ? OR action_text_rich_texts.body ILIKE ? OR users.first_name ILIKE ? OR users.last_name ILIKE ? OR users.email ILIKE ?", "%#{@query}%", "%#{@query}%","%#{@query}%", "%#{@query}%","%#{@query}%", "%#{@query}%").limit(10)
     render json: results
   end
 
