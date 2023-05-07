@@ -1,9 +1,9 @@
 # Hash Node lite
-this is Personal blog that any user can publish articles or whatever he thought the user should signup and publish articles and the othe users can comment on his article and can show his profile to read about him and his articles he wrote before.
+ Personal blog that any user can publish articles or whatever he thought the user should signup and publish articles and the othe users can comment on his article and can show his profile to read about him and his articles he wrote before.
+ The second version of [Blog_v1](https://github.com/abdelkhalekalashker/Blog_v1)
 
 
 # Table of Contents
-* [Preview](#preview)
 * [Technologies Used](#technologies-used-)
 * [Tools Used](#tools-used-)
 * [Dependences](#dependences-)
