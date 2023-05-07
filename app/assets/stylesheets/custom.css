@@ -29,3 +29,16 @@
     width: 100%;
     -webkit-appearance: none;
 }
+
+.ellipticalButton{
+  border-radius: 20px;
+  width: 100px;
+  height: 36px;
+}
+
+.ellipticalTextBox{
+border-radius: 20px;
+  width: 600px;
+  height : 38px;
+  background-color: aliceblue;
+}

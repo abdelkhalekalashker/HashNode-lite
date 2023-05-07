@@ -1,16 +1,16 @@
 <% if current_user %>
     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= current_user.first_name %>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-        <li><%= link_to "Admin", admin_path, class:"dropdown-item" if current_user.admin? %></li>
-        <li><%= link_to "New project", new_project_path,class:"dropdown-item" if current_user.admin? %></li>
-        <li><%= link_to 'Profile', user_path(current_user),method: :delete ,class:"dropdown-item" %></li>
-        <li><%= link_to 'Settings', edit_user_registration_path(current_user), class:"dropdown-item" %></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><%= button_to 'Sign out', destroy_user_session_path,method: :delete ,class:"dropdown-item" %></li>
-    </ul>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_user.first_name %>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+            <li><%= link_to "Admin", admin_path, class:"dropdown-item" if current_user.admin? %></li>
+            <li><%= link_to "New project", new_project_path,class:"dropdown-item" if current_user.admin? %></li>
+            <li><%= link_to 'Profile', user_path(current_user),method: :delete ,class:"dropdown-item" %></li>
+            <li><%= link_to 'Settings', edit_user_registration_path(current_user), class:"dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= button_to 'Sign out', destroy_user_session_path,method: :delete ,class:"dropdown-item" %></li>
+        </ul>
     </li>
 
 

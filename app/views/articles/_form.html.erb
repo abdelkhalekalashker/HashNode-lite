@@ -26,7 +26,7 @@
     <%= form.select :category_id, options_for_select(Category.all.order(name: :desc).collect {|cat| [cat.name , cat.id]} ), { prompt: "Select a category" }, class: "form-select" %>
   </div>
 
-  <%= form.submit article.nil? ? "Create" : "Update", class:"button mb-3" %>
+  <%= form.submit submit_text,class:"button mb-3" %>
 
 </div>
 

@@ -1,6 +1,69 @@
-<form class="d-flex" action="<%= search_path %>">
+<%# <div class="dropdown"></div>
+
+    <form class="d-flex" action="<%= search_path " id="autocomplete">
         <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-success" type="submit">Search</button>
-</form>
+
+    </form>
+
+
+</div> %>
+
+<!-- app/views/searches/new.html.erb -->
+
+
+<div class="dropdown">
+  <form class="d-flex" action="<%= search_path %>" id="search-form">
+<input class="form-control me-2" name="q" id="autocomplete-input" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+    <button class="btn btn-success" type="submit">Search</button>
+  </form>
+
+  <ul id="autocomplete-results"></ul>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    $("#autocomplete-input").autocomplete({
+      source: function(request, response) {
+        $.getJSON("/autocomplete", { q: request.term }, function(data) {
+          var results = $.map(data.slice(0, 10), function(item) {
+  return { label: item.title, value: "/articles/" + item.id }
+});
+
+          response(results);
+
+        });
+      },
+      minLength: 1,
+      select: function(event, ui) {
+  $("#autocomplete-input").val(ui.item.label);
+  window.location.href = ui.item.value;
+  return false;
+}
+    }).data("ui-autocomplete")._renderItem = function(ul, item) {
+      return $("<li>")
+        .append($("<a>").attr("href", "/articles/" + item.id).text(item.label))
+        .appendTo(ul)
+        .hover(
+          function() {
+            $(this).addClass("ui-state-hover");
+          },
+          function() {
+            $(this).removeClass("ui-state-hover");
+          }
+        );
+    };
+  });
+</script>
+
 
 

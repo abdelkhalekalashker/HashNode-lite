@@ -95,3 +95,10 @@ gem "chartkick", "~> 5.0"
 
 gem "better_errors"
 gem "binding_of_caller"
+
+
+gem 'will_paginate'
+gem 'will_paginate-bootstrap' , "~> 1.0.1"
+
+
+gem 'jquery-rails'

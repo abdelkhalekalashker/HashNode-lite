@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
-
+  get '/autocomplete', to: 'search#autocomplete'
   get 'pages/home'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "home", to: "pages#home"

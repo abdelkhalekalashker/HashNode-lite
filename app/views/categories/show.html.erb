@@ -1,7 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <h2 align="center"><%= @category.name.capitalize %></h2>
-<%= render 'categories/cat_form',articles: @category.articles.includes(:user,:rich_text_body) %>
+<%= render 'categories/cat_form',articles: @articles %>
+
+<div class="pagination">
+  <%= will_paginate @articles %>
+</div>
 
 <% if current_user&.admin? %>
 
