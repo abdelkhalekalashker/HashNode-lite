@@ -14,7 +14,7 @@
 
 
 ## Preview
-  
+
   ![User Profile](app/assets/images/user_profile_page.png)
   ![Admin](app/assets/images/amins_page.png)
   ![Admin](app/assets/images/amins_articls.png)
@@ -26,8 +26,8 @@
   ![Categories](app/assets/images/catgories_index.png)
   ![Show Category](app/assets/images/ruby_catgory_page.png)
 
-  
-  
+
+
 
 
 
@@ -39,7 +39,7 @@
 
   * Ruby On Rails as a framwork version "7.0.4"
 
-  * DataBase I used  is SQLite3 DBMS but I switched to PostgreSQL DBMS.
+  * DataBase I use is PostgreSQL DBMS, because I switched from SQLite3 DBMS.
 
   ### In the Frontend
 
