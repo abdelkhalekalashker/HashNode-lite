@@ -1,5 +1,5 @@
 <%= form_with(model: article) do |form| %>
-   <% if article.errors.any? %>
+  <% if article.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
@@ -11,23 +11,25 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :title, style: "display: block",class:"form-label" %>
-    <%= form.text_field :title,class:"form-control" %>
+  <div class="input-group mb-3">
+    <%= form.label :title, class: "input-group-text"%>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :body, style: "display: block",class:"form-label" %>
-    <%= form.rich_text_area :body,class:"form-control" %>
+    <%= form.label :body, style: "display: block", class: "form-label" %>
+    <%= form.rich_text_area :body, class: "form-control" %>
+  </div>
+
+  <div class="input-group mb-3">
+    <%= form.label :"post article at", class: "input-group-text" %>
+    <%= form.datetime_field :published_at, class: "form-control" %>
   </div>
 
   <div class="input-group mb-3">
     <%= form.label :category, class: "input-group-text" %>
-    <%= form.select :category_id, options_for_select(Category.all.order(name: :desc).collect {|cat| [cat.name , cat.id]} ), { prompt: "Select a category" }, class: "form-select" %>
+    <%= form.select :category_id, options_for_select(Category.all.order(name: :desc).collect { |cat| [cat.name, cat.id] }), { prompt: "Select a category" }, class: "form-select" %>
   </div>
 
-  <%= form.submit submit_text,class:"button mb-3" %>
-
-</div>
-
+  <%= form.submit submit_text, class: "button mb-3" %>
 <% end %>
