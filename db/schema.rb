@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_07_112135) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_07_121253) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -115,7 +115,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_112135) do
     t.string "slug"
     t.integer "comments_count"
     t.bigint "category_id", null: false
-    t.datetime "published_at", default: "2023-10-07 11:29:52", null: false
+    t.datetime "published_at"
+    t.boolean "published", default: false
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["slug"], name: "index_articles_on_slug", unique: true
     t.index ["user_id"], name: "index_articles_on_user_id"
