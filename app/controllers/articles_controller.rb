@@ -91,7 +91,7 @@ class ArticlesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :body, :category_id, pictures: [2])
+    params.require(:article).permit(:title, :body, :category_id, :published_at, pictures: [2])
   end
 
   def mark_notifications_as_read
