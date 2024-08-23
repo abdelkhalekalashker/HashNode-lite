@@ -1,0 +1,13 @@
+<%= form_with(model: [@room ,Message], remote: true, class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } ) do |f| %>
+
+  <%= f.hidden_field :room_id %>
+  <%= f.hidden_field :user_id %>
+
+  <div class="message-input">
+    <%= f.text_field :content, placeholder: "Type your message here...", rows: 3 %>
+  </div>
+
+  <div class="message-actions">
+    <%= f.submit "Send", class: "send-button" %>
+  </div>
+<% end %>
