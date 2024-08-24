@@ -1,0 +1,57 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: Blog_V2
+      POSTGRES_DB: Blog_V2_development
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:6.2
+    volumes:
+      - redis_data:/data
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/myapp
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: Blog_V2
+      POSTGRES_DB: Blog_V2_development
+      POSTGRES_HOST: db
+      POSTGRES_PORT: '5432'
+      RAILS_ENV: development
+      REDIS_URL: redis://redis:6379/1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+
+  cable:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "bundle exec puma -p 28080 cable/config.ru"
+    volumes:
+      - .:/myapp
+    depends_on:
+      - redis
+    ports:
+      - "28080:28080"
+    environment:
+      RAILS_ENV: development
+      REDIS_URL: redis://redis:6379/1
+
+volumes:
+  postgres_data:
+  redis_data:
