@@ -104,5 +104,4 @@ gem 'will_paginate-bootstrap' , "~> 1.0.1"
 gem 'jquery-rails'
 
 
-gem 'redis'
 gem 'sidekiq', '~> 6.0.0'
