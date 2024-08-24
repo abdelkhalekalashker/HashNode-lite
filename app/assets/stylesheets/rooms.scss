@@ -1,0 +1,44 @@
+#app/assets/stylesheets/rooms.scss
+  .msg-form {
+    position: fixed;
+    bottom: 0;
+    width: 90%
+  }
+
+  .col-md-10 {
+    height: 100vh;
+    overflow: scroll;
+  }
+
+
+  .msg-content {
+    width: 80%;
+    margin-right: 5px;
+  }
+
+  .msg{
+    background-color: #007bff !important;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .message-box {
+    width: fit-content;
+    max-width: 40%;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #555555 ;
+    padding: 10px
+}
+
+.msg {
+  background-color: #007bff;
+  padding: 10px;
+  margin: 10px;
+  }
+
+  .cont {
+  display: flex;
+  justify-content: flex-end
+  }

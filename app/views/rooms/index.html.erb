@@ -1,0 +1,8 @@
+<div class="container">
+  <h5> Hi <%= current_user.email %> </h5>
+  <%= turbo_stream_from "rooms" %>
+  <h3>Rooms</h3>
+  <div id="rooms">
+    <%= render @rooms %>
+  </div>
+</div>
